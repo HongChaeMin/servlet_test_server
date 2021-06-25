@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배탈의 민족</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	<div class="container">
+		<h1>주문하기</h1>
+
+		<form id="" method="get" action="/servlet/quiz07">
+			<div class="form-group">
+				<!--  name 속성(attribute)이 parameter로 넘어간다 -->
+				<label for="address">주소</label> <input type="text"
+					class="form-control col-3" id="address" name="address"
+					placeholder="주소를 입력하세요">
+			</div>
+
+			<div class="form-group">
+				<label for="card">결제 카드</label> <input type="text"
+					class="form-control col-3" id="card" name="card"
+					placeholder="카드를 입력하세요">
+			</div>
+
+			<div class="form-group">
+				<label for="price">가격</label> <input type="text"
+					class="form-control col-3" id="price" name="price" placeholder="원">
+			</div>
+
+			<button type="button" class="btn btn-info" id="submit" value="주문하기">주문하기</button>
+		</form>
+
+	</div>
+
+	<!-- <script>
+		// form 전체를 가져와서 submit을 할 수 있는 방법이 되게 많음
+		// jqurey 서브밋 검색해서 해봐
+		$(document).ready(function() {
+			$('#submit').on('click', function() {
+				var address = $('#address').val();
+				var card = $('#card').val();
+				
+				if (address.indexOf("서울시") == -1) {
+					$('#address').val("");
+					alert('배달 가능 지역이 아닙니다');
+					return;
+				}
+				if (card == "신한카드") {
+					alert('결제 가능한 카드가 아닙니다');
+					$('#card').val("");
+					return;
+				}
+			});
+		});
+	</script> -->
+</body>
+</html>
