@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +24,33 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
+
+	<div class="container">
+		<div class="display-3">사칙 연산 계산기</div>
+		<div>
+			<form method="post" action="quiz04_1.jsp" class="d-flex">
+				<div class="form-group mr-3 align-items-end">
+					<input type="text" class="form-control mr-3" id="num1" name="num1"
+						placeholder="숫자를 입력하세요">
+				</div>
+				<div class="form-group">
+					<select name="calculate" id="calculate" class="form-control mr-3"
+						style="width: 100px">
+						<option selected>선택</option>
+						<option>+</option>
+						<option>-</option>
+						<option>X</option>
+						<option>/</option>
+					</select>
+				</div>
+				<div class="form-group mr-3 align-items-end">
+					<input type="text" class="form-control mr-3" id="num2" name="num2"
+						placeholder="숫자를 입력하세요">
+				</div>
+				<button type="submit" class="btn btn-success">계산하기</button>
+			</form>
+		</div>
+	</div>
 
 </body>
 </html>
