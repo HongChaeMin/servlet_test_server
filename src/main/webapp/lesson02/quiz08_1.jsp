@@ -80,9 +80,20 @@
 
 	<div class="container d-flex">
 		<%
-			
+			for (Map<String, Object> checkMap : list) {
+				if ((int) checkMap.get("id") == id) {
+					%>
+					<div><img src="<%=checkMap.get("image")%>"></div>
+					<div class="ml-4">
+						<span class="display-2 font-weight-bold"><%=checkMap.get("title") %></span><br>
+						<span class="display-3 text-info"><%=checkMap.get("author") %></span><br>
+						<span class="display-4 text-secondary"><%=checkMap.get("publisher") %></span>
+					</div>
+					<%
+				}
+			}
 		%>
-		<div><img scr="<%= %>>"></div>
+		
 	</div>
 
 </body>

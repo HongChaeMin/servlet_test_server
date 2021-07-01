@@ -110,7 +110,7 @@
 					<th>별점</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody> <%-- 쌤꺼 코드 봐봐 난 멍청이였어 --%>
 				<%
 				if (ch) {
 					for (Map<String, Object> checkMap : list) {
