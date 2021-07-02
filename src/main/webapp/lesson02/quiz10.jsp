@@ -53,11 +53,10 @@
 			</thead>
 			<tbody>
 				<%
-					int maxDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH) - 1;	
+					int maxDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);	
 				
 					int day[][] = new int[6][7];
 					for (int i = 1; i <= maxDay; i++) {
-						out.println((cal.get(Calendar.WEEK_OF_MONTH) - 1) + " " + (cal.get(Calendar.DAY_OF_WEEK) - 1) + "<br>");
 						cal.set(Calendar.DATE, i);
 						day[cal.get(Calendar.WEEK_OF_MONTH) - 1][cal.get(Calendar.DAY_OF_WEEK) - 1] = i;
 					}
@@ -69,7 +68,7 @@
 						for (int j = 0; j < 7; j++) {
 							if (day[i][j] != 0) {
 								%>
-					<td><%= day[i][j] + 1 %></td>
+					<td><%= day[i][j] %></td>
 								<%
 							} else {
 								%>
