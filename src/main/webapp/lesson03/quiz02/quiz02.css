@@ -1,0 +1,28 @@
+@charset "UTF-8";
+h1 {
+	text-align: center;
+	margin: 10px
+}
+
+th {
+	text-align: center;
+}
+
+td {
+	text-align: center;
+}
+header {
+	height: 100px
+}
+.content {
+	height: 300px;
+}
+footer {
+	height: 80px;
+}
+span {
+	font-style: inherit;
+}
+div {
+	background-color: aqua;
+}

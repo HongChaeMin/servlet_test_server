@@ -1,0 +1,25 @@
+@charset "UTF-8";
+header {
+	height: 80px
+}
+
+ul {
+	height: 50px
+}
+
+footer {
+	height: 50px
+}
+
+h1 {
+	text-align: center;
+	margin: 10px
+}
+
+th {
+	text-align: center;
+}
+
+td {
+	text-align: center;
+}
