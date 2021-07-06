@@ -25,6 +25,7 @@
 	crossorigin="anonymous"></script>
 
 <link rel="stylesheet" type="text/css" href="quiz02.css">
+
 </head>
 <body>
 
@@ -112,40 +113,41 @@
 	<div id="wrap" class="container">
 		<jsp:include page="header.jsp" />
 		<jsp:include page="menu.jsp" />
+		<%
+		String title = request.getParameter("title");
+		for (Map<String, Object> checkMap : musicList) {
+			if (checkMap.get("title").equals(title)) {
+				int time = Integer.valueOf(checkMap.get("time").toString());
+				int m = time/60;
+				int s = time%60;
+		%>
 		<div class="profil d-flex">
-			<img
-				src="https://pbs.twimg.com/profile_images/1374979417915547648/vKspl9Et_400x400.jpg">
+			<img src="<%=checkMap.get("thumbnail")%>">
 			<div class="mt-3">
-				<h3>아이유</h3>
-				<p>
-					EDAM 엔터테인먼트<br> 2008 데뷔
-				</p>
+				<span class="display-4"><%=title%></span>
+				<h4 style="font-weight: bold; color: green; margin-top: 5px"><%=checkMap.get("singer")%></h4>
+				<div class="re d-flex justify-content-between">
+					<span>앨범</span> <span><%=checkMap.get("album")%></span>
+				</div>
+				<div class="re d-flex justify-content-between">
+					<span>재생시간</span> <span><%=m%> : <%=s %></span>
+				</div>
+				<div class="re d-flex justify-content-between">
+					<span>작곡가</span> <span><%=checkMap.get("composer")%></span>
+				</div>
+				<div class="re d-flex justify-content-between">
+					<span>작사가</span> <span><%=checkMap.get("lyricist")%></span>
+				</div>
 			</div>
 		</div>
-		<div class="mt-3">
-			<h3>곡 목록</h3>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>no</th>
-						<th>제목</th>
-						<th>앨범</th>
-					</tr>
-				</thead>
-				<tbody>
-					<%
-					for (Map<String, Object> songs : musicList) {
-					%>
-					<tr>
-						<td><%=songs.get("id")%></td>
-						<td><a href="templateSong.jsp?title=<%=songs.get("title")%>"><%=songs.get("title")%></a></td>
-						<td><%=songs.get("album")%></td>
-					</tr>
-					<%
-					}
-					%>
-				</tbody>
-			</table>
+		<%
+			}
+		}
+		%>
+		<div class="mb-4">
+			<h3 class="mt-4 font-weight-bold">가사</h3>
+			<hr>
+			<h6>가사 정보 없음</h6>
 		</div>
 		<jsp:include page="footer.jsp" />
 	</div>

@@ -11,18 +11,40 @@ th {
 td {
 	text-align: center;
 }
+
 header {
 	height: 100px
 }
+
 .content {
 	height: 300px;
 }
+
 footer {
 	height: 80px;
 }
+
 span {
 	font-style: inherit;
 }
-div {
-	background-color: aqua;
+
+a {
+	font-weight: bold;
+}
+
+.profil {
+	height: 250px;
+	border-style: solid;
+	border-color: green;
+}
+
+.re {
+	color: gray;
+}
+
+img {
+	height: 200px;
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-left: 15px
 }
