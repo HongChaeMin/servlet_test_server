@@ -116,9 +116,9 @@
 			<img
 				src="https://pbs.twimg.com/profile_images/1374979417915547648/vKspl9Et_400x400.jpg">
 			<div class="mt-3">
-				<h3>아이유</h3>
+				<h3><%= artistInfo.get("name") %></h3>
 				<p>
-					EDAM 엔터테인먼트<br> 2008 데뷔
+					<%= artistInfo.get("agency") %><br> <%= artistInfo.get("debute") %> 데뷔
 				</p>
 			</div>
 		</div>
