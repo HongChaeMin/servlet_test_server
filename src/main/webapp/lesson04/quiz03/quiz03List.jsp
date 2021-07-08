@@ -6,17 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>즐겨찾기</title>
+<title>HONG당무 마켓</title>
 
-<style type="text/css">
-tr {
-	text-align: center;
-}
-
-td {
-	text-align: center;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="quiz03_style.css">
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -36,40 +28,40 @@ td {
 	crossorigin="anonymous"></script>
 </head>
 <body>
+
 	<%
 	MysqlService mysqlService = MysqlService.getInstance();
 	mysqlService.connection();
 
-	String query = "select * from `favorites`;";
+	String query = "SELECT A.*, B.* FROM `seller` as A JOIN `used_goods` as B ON A.id = B.sellerId;";
 	ResultSet result = mysqlService.select(query);
 	%>
-	<div class="container">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>사이트</th>
-					<th>사이트 주소</th>
-				</tr>
-			</thead>
-			<tbody>
-				<%	
-				while (result.next()) {
+
+	<div id="wrap" class="container">
+
+		<jsp:include page="header.jsp" />
+
+		<section class="d-flex flex-wrap">
+			<%
+			while (result.next()) {
+				String url = result.getString("picture");
 			%>
-				<tr>
-					<td><%= result.getString("name") %></td>
-					<td><a href="<%=result.getString("url")%>"><%= result.getString("url") %></a></td>
-					<td><a
-						href="/db/quiz02_delete?id=<%= result.getInt("id") %>">삭제</a></td>
-				</tr>
-				<%
-				}
-				mysqlService.disconnect();
-				%>
-			</tbody>
-		</table>
-		<div>
-			<a href="quiz02_add.jsp"><button class="btn btn-info">추가 하기</button></a>
-		</div>
+			<article class="list">
+				<img src="<%=url%>" width="80%" height="60%">
+				<div>
+					<h6><%= result.getString("title") %></h6>
+					<span><%= result.getString("price") %> 원</span> <br>
+					<span><%= result.getString("nickname") %></span>
+				</div>
+			</article>
+			<%
+			}
+			%>
+		</section>
+
+		<jsp:include page="footer.jsp" />
+
 	</div>
+
 </body>
 </html>

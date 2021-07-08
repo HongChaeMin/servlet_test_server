@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+#wrap {
+	height: 800px
+}
+
+header {
+	height: 20%;
+	background-color: orange;
+}
+
+li {
+	font-size: 130%;
+}
+
+footer {
+	height: 10%;
+}
+
+section {
+	height: 70%;
+}
+
+.list {
+	margin: 1%;
+	height: 40%;
+	width: 30%;
+	border-style: solid;
+	border-color: orange;
+	height: 40%;
+}

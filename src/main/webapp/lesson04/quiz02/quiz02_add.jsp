@@ -1,22 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.test.common.MysqlService"%>
-<%@ page import="java.sql.ResultSet"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>즐겨찾기</title>
-
-<style type="text/css">
-tr {
-	text-align: center;
-}
-
-td {
-	text-align: center;
-}
-</style>
+<title>즐겨찾기 추가</title>
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -36,40 +24,17 @@ td {
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<%
-	MysqlService mysqlService = MysqlService.getInstance();
-	mysqlService.connection();
-
-	String query = "select * from `favorites`;";
-	ResultSet result = mysqlService.select(query);
-	%>
 	<div class="container">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>사이트</th>
-					<th>사이트 주소</th>
-				</tr>
-			</thead>
-			<tbody>
-				<%	
-				while (result.next()) {
-			%>
-				<tr>
-					<td><%= result.getString("name") %></td>
-					<td><a href="<%=result.getString("url")%>"><%= result.getString("url") %></a></td>
-					<td><a
-						href="/db/quiz02_delete?id=<%= result.getInt("id") %>">삭제</a></td>
-				</tr>
-				<%
-				}
-				mysqlService.disconnect();
-				%>
-			</tbody>
-		</table>
-		<div>
-			<a href="quiz02_add.jsp"><button class="btn btn-info">추가 하기</button></a>
-		</div>
+		<h1>즐겨찾기 추가</h1>
+		<form method="post" action="/db/quiz02_add">
+			<div class="form-group">
+				<span>사이트명 : </span> <input class="from-control" name="name">
+			</div>
+			<div class="form-group">
+				<span>사이트 주소 : </span> <input class="from-control" name="url">
+			</div>
+			<button class="btn btn-info" type="submit">추가 하기</button>
+		</form>
 	</div>
 </body>
 </html>

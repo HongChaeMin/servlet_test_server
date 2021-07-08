@@ -10,17 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.test.common.MysqlService;
 
-@WebServlet("/lesson04/ex02_delete")
-public class Ex02Delete extends HttpServlet{
-
+@WebServlet("/db/quiz02_delete")
+public class Quiz02Delete extends HttpServlet{
+	
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse resonse) throws IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		Integer id = Integer.valueOf(request.getParameter("id"));
 		
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connection();
 		
-		String query = "DELETE FROM `new_user` WHERE id = " + id;
+		String query = "DELETE FROM `favorites` WHERE id = " + id;
 		
 		try {
 			mysqlService.update(query);
@@ -31,9 +31,7 @@ public class Ex02Delete extends HttpServlet{
 		
 		mysqlService.disconnect();
 		
-		// 목록 화면 이동
-		resonse.sendRedirect("ex02/ex02_1.jsp");
-		
+		response.sendRedirect("/lesson04/quiz02/quiz02.jsp");
 	}
 	
 }

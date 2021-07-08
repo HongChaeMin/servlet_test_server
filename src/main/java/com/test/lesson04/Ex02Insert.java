@@ -21,6 +21,9 @@ public class Ex02Insert extends HttpServlet{
 		String introduce = request.getParameter("introduce");
 		
 		MysqlService mysqlService = MysqlService.getInstance();
+		mysqlService.connection();
+		
+		
 		try {
 			mysqlService.update("INSERT INTO `new_user` (`name`, `yyyymmdd`, `introduce`, `email`) VALUES ('" + name + "', '" + birth + "', '" + introduce + "', '" + email + "');");
 		} catch (SQLException e) {
